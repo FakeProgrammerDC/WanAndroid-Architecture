@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import okhttp3.Cookie;
 import okhttp3.HttpUrl;
 

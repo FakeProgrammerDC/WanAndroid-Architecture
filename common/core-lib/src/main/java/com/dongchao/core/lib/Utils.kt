@@ -4,11 +4,11 @@ import com.dongchao.core.lib.log.AppLog
 
 /** log **/
 inline fun <reified T> Any.iClassTagLog() {
-    AppLog.logImp.i(T::class.java.name, "$this")
+    AppLog.logImp.i(T::class.java.simpleName, "$this")
 }
 
 inline fun <reified T> Any.eClassTagLog() {
-    AppLog.logImp.e(T::class.java.name, "$this")
+    AppLog.logImp.e(T::class.java.simpleName, "$this")
 }
 
 fun <T> T.iLog(tag: String = "") {

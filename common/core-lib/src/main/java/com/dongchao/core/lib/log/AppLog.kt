@@ -4,39 +4,40 @@ import android.util.Log
 import com.dongchao.core.lib.isDebug
 import com.dongchao.core.lib.iLog
 
+
 object AppLog {
 
-    val logImp: LogImp by lazy { debugLog }
+    val logImp by lazy { debugLog }
 
     private val debugLog: LogImp = object : LogImp {
         override fun v(tag: String, msg: String) {
             if (isDebug)
-                logImp?.v(tag, msg)
+                Log.v(tag, msg)
         }
 
         override fun i(tag: String, msg: String) {
             if (isDebug)
-                logImp?.i(tag, msg)
+                Log.i(tag, msg)
         }
 
         override fun w(tag: String, msg: String) {
             if (isDebug)
-                logImp?.w(tag, msg)
+                Log.w(tag, msg)
         }
 
         override fun d(tag: String, msg: String) {
             if (isDebug)
-                logImp?.d(tag, msg)
+                Log.d(tag, msg)
         }
 
         override fun e(tag: String, msg: String) {
             if (isDebug)
-                logImp?.e(tag, msg)
+                Log.e(tag, msg)
         }
 
         override fun printErrStackTrace(tag: String, msg: String, tr: Throwable) {
             if (isDebug)
-                logImp?.v(tag, "$msg  ${Log.getStackTraceString(tr)}")
+                Log.e(tag, "$msg  ${Log.getStackTraceString(tr)}")
         }
     }
 

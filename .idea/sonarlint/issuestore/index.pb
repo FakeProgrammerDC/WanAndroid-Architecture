@@ -21,5 +21,3 @@ m
 =app/src/test/java/com/dongchao/wanandroid/simple/Singleton.kt,a/d/ad428be2af0e0a8fe9c4e1e7de113fc74e5a7868
 n
 >app/src/test/java/com/dongchao/wanandroid/simple/CreateList.kt,7/6/76fa5d623fe6a7f0c2c89b1ffbd71c2540d70ed0
-e
-5app/src/main/java/com/dongchao/wanandroid/AppUtils.kt,4/2/42f1b4ec8e18c38a00921a790ccc6a4e433ae25b

@@ -11,6 +11,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -18,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-private const val BASE_URL = "https://www.wanandroid.com"
+const val BASE_URL = "https://www.wanandroid.com/"
 
 //连接时长，单位：秒
 private const val CONNECT_TIME_OUT = 10
@@ -27,25 +28,18 @@ private const val CONNECT_TIME_OUT = 10
 private const val MAX_REQUESTS_PER_HOST = 64
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 class NetWorkModule {
 
     @Provides
-    fun providerPersistentCookieJar(): PersistentCookieJar? {
-        return try {
-            var app = Utils.getApp()
-            var cookieJar = PersistentCookieJar(
-                SetCookieCache(),
-                SharedPrefsCookiePersistor(app)
-            )
-            cookieJar
-        } catch (e: Exception) {
-            null
-        }
-    }
+    @Singleton
+    fun providerOkHttpClient(): OkHttpClient {
+        var app = Utils.getApp()
+        var cookieJar = PersistentCookieJar(
+            SetCookieCache(),
+            SharedPrefsCookiePersistor(app)
+        )
 
-    @Provides
-    fun providerOkHttpClient(persistentCookieJar: PersistentCookieJar): OkHttpClient {
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
@@ -53,14 +47,15 @@ class NetWorkModule {
                 }
             ).addNetworkInterceptor(StethoInterceptor())
             .connectTimeout(CONNECT_TIME_OUT.toLong(), TimeUnit.SECONDS)
-            .cookieJar(persistentCookieJar)
+            .cookieJar(cookieJar)
             .build()
         okHttpClient.dispatcher.maxRequestsPerHost = MAX_REQUESTS_PER_HOST
         return okHttpClient
     }
 
     @Provides
-    fun providerRetrofitNetApi(okHttpClient: OkHttpClient): RetrofitProcessor.RetrofitApi<*> {
+    @Singleton
+    fun providerRetrofitNetApi(okHttpClient: OkHttpClient): RetrofitProcessor.RetrofitApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)

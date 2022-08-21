@@ -14,17 +14,17 @@ import retrofit2.http.*
 import javax.inject.Inject
 
 
-class RetrofitProcessor<T> @Inject constructor(var retrofitApi: RetrofitApi<T>) :
+class RetrofitProcessor @Inject constructor(var retrofitApi: RetrofitApi) :
     IHttpProcessor {
 
-    override suspend fun post(url: String, params: Map<String, String>): NetworkResponse<T> =
-        retrofitApi.requestPost(url, appendBody(params))
-
-    override suspend fun get(url: String, params: Map<String, String>): NetworkResponse<T> =
-        retrofitApi.requestGet(url, params)
+//    override suspend fun post(url: String, params: Map<String, String>): NetworkResponse<T> =
+//        retrofitApi.requestPost(url, appendBody(params))
+//
+//    override suspend fun get(url: String, params: Map<String, String>): NetworkResponse<T> =
+//        retrofitApi.requestGet(url, params)
 
     private fun appendBody(params: Map<String, Any>?): RequestBody {
-        "retrofitApi.hashCode() = ${retrofitApi.hashCode()}".eClassTagLog<RetrofitProcessor<Any>>()
+        "retrofitApi.hashCode() = ${retrofitApi.hashCode()}".eClassTagLog<RetrofitProcessor>()
 
         val body = FormBody.Builder()
 
@@ -39,18 +39,32 @@ class RetrofitProcessor<T> @Inject constructor(var retrofitApi: RetrofitApi<T>) 
         return body.build()
     }
 
-    interface RetrofitApi<T> {
+    interface RetrofitApi {
         @POST("{url}")
         suspend fun requestPost(
             @Path("url") url: String,
             @Body requestBody: RequestBody
-        ): NetworkResponse<T>
+        ): NetworkResponse
 
         @GET("{url}")
         suspend fun requestGet(
             @Path("url") url: String,
             @QueryMap map: Map<String, String>
-        ): NetworkResponse<T>
+        ): NetworkResponse
+    }
+
+    override suspend fun post(url: String, params: Map<String, String>) {
+        "post retrofitApi.hashCode() = ${retrofitApi.hashCode()}".eClassTagLog<RetrofitProcessor>()
+        //retrofitApi.requestPost()
+    }
+
+    override suspend fun get(url: String, params: Map<String, String>) {
+        "get retrofitApi.hashCode() = ${retrofitApi.hashCode()}".eClassTagLog<RetrofitProcessor>()
+        try {
+            retrofitApi.requestGet(url, params).eClassTagLog<RetrofitProcessor>()
+        } catch (e: Exception) {
+            e.message?.eClassTagLog<RetrofitProcessor>()
+        }
     }
 
 }
