@@ -1,7 +1,10 @@
 package com.dongchao.core.network
 
 import com.dongchao.core.lib.iClassTagLog
+import com.dongchao.core.network.bean.NetworkResponse
+import com.dongchao.core.network.bean.User
 import com.dongchao.core.network.di.BASE_URL
+import com.google.gson.Gson
 import kotlinx.coroutines.suspendCancellableCoroutine
 import okhttp3.*
 import retrofit2.Invocation
@@ -14,28 +17,38 @@ import kotlin.coroutines.resumeWithException
 class OkHttpProcessor @Inject constructor(var okHttpClient: OkHttpClient) :
     IHttpProcessor {
 
-    override suspend fun post(url: String, params: Map<String, String>) {
-        val requestBody = appendBody(params)
-        val request = Request.Builder().url("$BASE_URL$url").post(requestBody).build()
-        try {
-            var str = okHttpClient.newCall(request).await()
-            str.iClassTagLog<OkHttpProcessor>()
-        } catch (e: Exception) {
-            e.message?.iClassTagLog<OkHttpProcessor>()
-        }
-    }
+//    override suspend fun post(url: String, params: Map<String, String>): NetworkResponse<Any> {
+//        val requestBody = appendBody(params)
+//        val request = Request.Builder().url("$BASE_URL$url").post(requestBody).build()
+//        try {
+//            //return okHttpClient.newCall(request).await()
+//            //str.iClassTagLog<OkHttpProcessor>()
+//        } catch (e: Exception) {
+//            //e.message?.iClassTagLog<OkHttpProcessor>()
+//        }
+//        return NetworkResponse(User("w"))
+//    }
+//
+//    override suspend fun get(url: String, params: Map<String, String>): NetworkResponse<Any> {
+//        val request: Request = Request.Builder()
+//            .url("$BASE_URL$url")
+//            .build()
+//        try {
+//            var str = okHttpClient.newCall(request).await()
+//            str.iClassTagLog<OkHttpProcessor>()
+//        } catch (e: Exception) {
+//            e.message?.iClassTagLog<OkHttpProcessor>()
+//        }
+//        return NetworkResponse(User("w"))
+//    }
 
-    override suspend fun get(url: String, params: Map<String, String>) {
-        val request: Request = Request.Builder()
-            .url("$BASE_URL$url")
-            .build()
-        try {
-            var str = okHttpClient.newCall(request).await()
-            str.iClassTagLog<OkHttpProcessor>()
-        } catch (e: Exception) {
-            e.message?.iClassTagLog<OkHttpProcessor>()
-        }
-    }
+//    override suspend fun <T : Any> get2(
+//        url: String,
+//        params: Map<String, String>,
+//        clazz: Class<T>
+//    ): NetworkResponse<T>? {
+//
+//    }
 
     private fun appendBody(params: Map<String, Any>?): RequestBody {
         val body = FormBody.Builder()
@@ -50,9 +63,23 @@ class OkHttpProcessor @Inject constructor(var okHttpClient: OkHttpClient) :
 
         return body.build()
     }
+
+    override suspend fun <T : Any> post(
+        url: String,
+        params: Map<String, String>
+    ): NetworkResponse<T> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun <T : Any> get(
+        url: String,
+        params: Map<String, String>
+    ): NetworkResponse<List<T>> {
+        TODO("Not yet implemented")
+    }
 }
 
-suspend fun Call.await(): String {
+suspend fun <T : Any> Call.await(): T {
     return suspendCancellableCoroutine { continuation ->
         continuation.invokeOnCancellation {
             cancel()
@@ -78,7 +105,9 @@ suspend fun Call.await(): String {
                         )
                         continuation.resumeWithException(e)
                     } else {
-                        continuation.resume(body.toString())
+//                        var gson = Gson()
+//                        var objResult = gson.fromJson<T>(body.toString(), T::class)
+//                        continuation.resume(body)
                     }
                 } else {
                     continuation.resumeWithException(RuntimeException("error"))

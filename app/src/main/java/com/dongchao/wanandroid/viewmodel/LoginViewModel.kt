@@ -21,6 +21,5 @@ class LoginViewModel @Inject constructor(@BindOkHttp var iHttpProcessor: IHttpPr
 
     suspend fun testNetwork() {
         iHttpProcessor.hashCode().eClassTagLog<LoginViewModel>()
-        iHttpProcessor.get("banner/json")
     }
 }
