@@ -5,13 +5,15 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+        maven(url = "https://jitpack.io")
     }
 
     dependencies {
         classpath(Plugins.gradlePlugin)
-        classpath(Plugins.kotlinGradlePlugin)
         classpath(Plugins.kotlinSerializationPlugin)
         classpath(Plugins.hiltPlugin)
+        classpath(kotlin("gradle-plugin", Versions.kotlin))
     }
 }
 

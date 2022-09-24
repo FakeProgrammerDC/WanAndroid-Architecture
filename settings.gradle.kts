@@ -3,6 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        jcenter()
         maven(url = "https://jitpack.io")
     }
 }
@@ -23,11 +24,17 @@ dependencyResolutionManagement {
         }
         google()
         mavenCentral()
+        jcenter()
     }
 }
 
 rootProject.name = "WanAndroid-Architecture"
 include(":app")
+include(":appmodule")
+include(":appmodule:my")
 include(":common")
 include(":common:core-network")
 include(":common:core-lib")
+include(":common:core-utils")
+include(":appmodule:home")
+include(":appmodule:navigation")

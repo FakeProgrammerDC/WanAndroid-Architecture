@@ -20,8 +20,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -29,18 +28,37 @@ android {
         }
     }
 
-    packagingOptions{
+    buildFeatures {
+        viewBinding = true
+    }
+
+    packagingOptions {
         exclude("META-INF/gradle/incremental.annotation.processors")
     }
+
+
 }
+
+//kapt {
+//    arguments {
+//        arg("AROUTER_MODULE_NAME", project.name)
+//    }
+//}
 
 dependencies {
 
     implementation(Lib.Jetpack.hiltAndroid)
+    kapt(Lib.Jetpack.kaptHiltCompiler)
     kapt(Lib.Jetpack.kaptHiltAndroidCompiler)
+//    kapt(Lib.Router.aRouterKapt)
+
+    implementation(project(mapOf("path" to ":appmodule:home")))
+    implementation(project(mapOf("path" to ":appmodule:navigation")))
+    implementation(project(mapOf("path" to ":appmodule:my")))
 
     implementation(project(mapOf("path" to ":common:core-lib")))
-    implementation(project(mapOf("path" to ":common:core-network")))
+
     androidTestImplementation(Lib.Test.junit)
     androidTestImplementation(Lib.Test.espressoCore)
+
 }

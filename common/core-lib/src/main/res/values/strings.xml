@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WanAndroid-Architecture</string>
+
+    <string name="icon_back">&#xe837;</string>
+</resources>

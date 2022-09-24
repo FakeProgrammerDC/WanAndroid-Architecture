@@ -1,8 +1,6 @@
 
 7
 gradlew,5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9
-;
-gradlew.bat,2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3
 F
 app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
 {
@@ -21,3 +19,21 @@ m
 =app/src/test/java/com/dongchao/wanandroid/simple/Singleton.kt,a/d/ad428be2af0e0a8fe9c4e1e7de113fc74e5a7868
 n
 >app/src/test/java/com/dongchao/wanandroid/simple/CreateList.kt,7/6/76fa5d623fe6a7f0c2c89b1ffbd71c2540d70ed0
+„
+Tcommon/core-network/src/main/java/com/dongchao/core/network/annotation/BindOkHttp.kt,1/6/16514ff4f87becae74aadc583e42aa610736d551
+†
+Vcommon/core-network/src/main/java/com/dongchao/core/network/annotation/BindRetrofit.kt,a/3/a34eba6cb4738883f0ae612768120938d08bbf37
+…
+Ucommon/core-network/src/main/java/com/dongchao/core/network/di/HttpProcessorModule.kt,a/d/adff9fcaf934ecae70671f27a0d070c92db03cff
+;
+gradlew.bat,2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3
+J
+common/core-lib/.gitignore,5/4/547e72ff8a4213667dd8c73c6a4400f40086b2d1
+A
+gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
+>
+app/.gitignore,5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f
+I
+buildSrc/build.gradle.kts,d/9/d90b697280fada81e52ec92d24725920f1cb087b
+\
+,common/core-lib/src/main/AndroidManifest.xml,7/f/7ff61f7d4d8ad986667c7f840fcc3c3cea83ac45

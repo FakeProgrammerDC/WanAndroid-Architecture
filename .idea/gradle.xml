@@ -11,10 +11,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/appmodule" />
+            <option value="$PROJECT_DIR$/appmodule/home" />
+            <option value="$PROJECT_DIR$/appmodule/my" />
+            <option value="$PROJECT_DIR$/appmodule/navigation" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/core-lib" />
             <option value="$PROJECT_DIR$/common/core-network" />
+            <option value="$PROJECT_DIR$/common/core-utils" />
           </set>
         </option>
       </GradleProjectSettings>

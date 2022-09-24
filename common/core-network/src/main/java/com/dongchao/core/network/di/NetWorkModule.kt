@@ -1,6 +1,7 @@
 package com.dongchao.core.network.di
 
 import com.blankj.utilcode.util.Utils
+import com.dongchao.common.utils.converts.GsonSingleton
 import com.dongchao.core.network.RetrofitProcessor
 import com.dongchao.core.network.cookie.PersistentCookieJar
 import com.dongchao.core.network.cookie.cache.SetCookieCache
@@ -10,12 +11,13 @@ import com.facebook.stetho.okhttp3.StethoInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -59,8 +61,7 @@ class NetWorkModule {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(RetrofitProcessor.RetrofitApi::class.java)
+            .addConverterFactory(GsonConverterFactory.create(GsonSingleton.GSON))
+            .build().create()
     }
 }

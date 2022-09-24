@@ -3,7 +3,51 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1765625" />
+        <entry key="../../../../../Applications/Android Studio.app/Contents/gradle-6.5/bin/caches/transforms-3/4f47b27198dd6d8ae5badf348e7979ac/transformed/agentweb-core-v5.0.6-androidx/res/layout/agentweb_error_page.xml" value="0.3458333333333333" />
+        <entry key="../../../Library/Android/sdk/platforms/android-32/data/res/layout/auto_complete_list.xml" value="0.2125" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.2755" />
+        <entry key="app/src/main/res/drawable/ic_home_48dp.xml" value="0.2755" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3205" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background_test.xml" value="0.1565" />
+        <entry key="app/src/main/res/drawable/ic_my_48dp.xml" value="0.2755" />
+        <entry key="app/src/main/res/drawable/ic_navigation_48dp.xml" value="0.2755" />
+        <entry key="app/src/main/res/drawable/ic_profile_48dp.xml" value="0.2755" />
+        <entry key="app/src/main/res/drawable/menu_select.xml" value="0.2755" />
+        <entry key="app/src/main/res/layout/activity_base_test.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/layout/activity_copy.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.5068730672200521" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_test.xml" value="0.3765625" />
+        <entry key="app/src/main/res/layout/activity_web_view.xml" value="0.3458333333333333" />
+        <entry key="app/src/main/res/layout/activity_webview.xml" value="0.34479166666666666" />
+        <entry key="app/src/main/res/layout/fragment_copy.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.37395833333333334" />
+        <entry key="app/src/main/res/layout/item_home_banner.xml" value="0.4088541666666667" />
+        <entry key="app/src/main/res/layout/item_home_list.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/view_home_banner.xml" value="0.4078125" />
+        <entry key="app/src/main/res/layout/view_home_list.xml" value="0.30625" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.41458333333333336" />
+        <entry key="app/src/main/res/menu/ic_navigation_48dp.xml" value="0.41458333333333336" />
+        <entry key="app/src/main/res/menu/ic_profile_48dp.xml" value="0.41458333333333336" />
+        <entry key="app/src/main/res/menu/menu_select.xml" value="0.38958333333333334" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1565" />
+        <entry key="appmodule/home/src/main/res/layout/fragemnt_view_banner.xml" value="0.41354166666666664" />
+        <entry key="appmodule/home/src/main/res/layout/fragment_view_list.xml" value="0.43802083333333336" />
+        <entry key="appmodule/home/src/main/res/layout/item_home_banner.xml" value="0.3333333333333333" />
+        <entry key="appmodule/home/src/main/res/layout/item_home_list.xml" value="0.4390625" />
+        <entry key="appmodule/my/src/main/res/layout/activity_login.xml" value="0.34322916666666664" />
+        <entry key="appmodule/my/src/main/res/layout/fragment_copy.xml" value="0.2994791666666667" />
+        <entry key="appmodule/my/src/main/res/layout/fragment_my.xml" value="0.38333333333333336" />
+        <entry key="appmodule/navigation/src/main/res/layout/activity_login.xml" value="0.34322916666666664" />
+        <entry key="appmodule/navigation/src/main/res/layout/fragment_my.xml" value="0.2994791666666667" />
+        <entry key="appmodule/navigation/src/main/res/layout/fragment_navigation.xml" value="0.4323076923076923" />
+        <entry key="common/core-lib/src/main/res/drawable/app_loading_bg.xml" value="0.3205" />
+        <entry key="common/core-lib/src/main/res/layout/app_loading.xml" value="0.3390625" />
+        <entry key="common/core-lib/src/main/res/layout/basic_title_layout.xml" value="0.67" />
+        <entry key="common/core-lib/src/main/res/layout/common_title_layout.xml" value="0.3779487179487179" />
+        <entry key="myapplication/src/main/res/layout/activity_main.xml" value="0.26666666666666666" />
       </map>
     </option>
   </component>
